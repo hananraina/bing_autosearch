@@ -2033,11 +2033,14 @@ const btn_start = document.getElementById("btn-start"),
         return { name: e, value: o };
       },
       load() {
+        BING_AUTOSEARCH.cookies.set("_need_help", "false", 365)
+        BING_AUTOSEARCH.cookies.set("_search_interval", "3000", 365)
+        BING_AUTOSEARCH.cookies.set("_multitab_mode", "false", 365)
+
         let e = new bootstrap.Modal(document.getElementById("modal-help"), {}),
           o = BING_AUTOSEARCH.cookies.get("_need_help"),
           a = BING_AUTOSEARCH.cookies.get("_multitab_mode"),
-          r="3000";
-          //r = BING_AUTOSEARCH.cookies.get("_search_interval");
+          r = BING_AUTOSEARCH.cookies.get("_search_interval");
         if (
           (o.value ||
             (e.show(), BING_AUTOSEARCH.cookies.set("_need_help", "false", 365)),
